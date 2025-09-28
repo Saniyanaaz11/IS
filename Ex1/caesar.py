@@ -1,35 +1,55 @@
-def encrypt(text, shift):
-    result = []
-    for c in text:
-        if c.isalpha():
-            base = ord('A') if c.isupper() else ord('a')
-            result.append(chr((ord(c) - base + shift) % 26 + base))
-        else:
-            result.append(c)
-    return ''.join(result)
+letters = 'abcdefghijklmnopqrstuvwxyz'
 
-def decrypt(text, shift):
-    return encrypt(text, 26 - shift)
+print("Enter the plaintext:")
+plainText = input().lower()
 
-def main():
-    plaintext = input("Enter plaintext: ")
-    shift = int(input("Enter shift key (1-25): "))
-    ciphertext = encrypt(plaintext, shift)
-    print("Ciphertext:", ciphertext)
-    decrypted_text = decrypt(ciphertext, shift)
-    print("Decrypted Text:", decrypted_text)
+print("Enter the key value:")
+try:
+    key = int(input())
+except ValueError:
+    print("Invalid key. Please enter a number.")
+    exit()
 
-if __name__ == "__main__":
-    main()
-####################################
+# Encryption Logic
+cipherText = ''
+for char in plainText:
+    if char in letters:
+        index = letters.index(char)
+        shiftedIndex = (index + key) % 26
+        cipherText += letters[shiftedIndex]
+    else:
+        cipherText += char
+
+print("\nEncrypted Text:")
+print(cipherText)
+
+# Decryption Logic
+decryptedText = ''
+for char in cipherText:
+    if char in letters:
+        index = letters.index(char)
+        shiftedIndex = (index - key) % 26
+        decryptedText += letters[shiftedIndex]
+    else:
+        decryptedText += char
+
+print("\nDecrypted Text:")
+print(decryptedText)
+   
 # Example usage:
 # Input: "Hello", Key: 1
-# Output: "Ifmmp" (Encrypted), "Hello" (Decrypted)
+# Output: "ifmmp" (Encrypted), "hello" (Decrypted)
 ####################################
 #  Sample Input/Output:
 ####################################
-#Enter plaintext: Hello
-#Enter shift key (1-25): 1
-#Ciphertext: Ifmmp
-#Decrypted Text: Hello
+# Enter the plaintext:
+#Hello
+#Enter the key value:
+#1
+
+#Encrypted Text:
+#ifmmp
+
+#Decrypted Text:
+#hello
 ####################################
