@@ -58,7 +58,7 @@ cleaned   = clean_decrypted(decrypted)
 
 print("Encrypted Text:", encrypted)
 print("Decrypted Text:", cleaned)
-
+#####################################
 # Example usage:
 # Input: "balloon", Key: "playfair example" 
 # Output: "dpyranqo" (Encrypted), "balloon" (Decrypted)
