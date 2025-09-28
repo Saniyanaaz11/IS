@@ -1,4 +1,4 @@
-#Use caesar_cipher.py as it is more simple and efficient.
+#Use caesar_cipher or the 10 lines one as they are more simple and efficient.
 letters = 'abcdefghijklmnopqrstuvwxyz'
 
 print("Enter the plaintext:")
