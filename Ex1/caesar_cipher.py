@@ -9,7 +9,7 @@ decrypt = lambda text, shift: encrypt(text, 26 - shift)
 
 if __name__ == "__main__":
     text = input("Enter the plaintext: ")
-    shift = int(input("Enter the key value: "))
+    shift = int(input("Enter key value: "))
     print("Encrypted Text is ", cipher := encrypt(text, shift))
     print("Decrypted Text is ", decrypt(cipher, shift))
 ####################################
