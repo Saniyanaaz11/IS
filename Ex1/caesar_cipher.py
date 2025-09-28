@@ -8,10 +8,10 @@ def encrypt(text, shift):
 decrypt = lambda text, shift: encrypt(text, 26 - shift)
 
 if __name__ == "__main__":
-    shift = int(input("Enter shift key (1-25): "))
-    text = input("Enter plaintext: ")
-    print("Ciphertext:", cipher := encrypt(text, shift))
-    print("Decrypted Text:", decrypt(cipher, shift))
+    text = input("Enter the plaintext: ")
+    shift = int(input("Enter the key value: "))
+    print("Encrypted Text is ", cipher := encrypt(text, shift))
+    print("Decrypted Text is ", decrypt(cipher, shift))
 ####################################
 # Example usage:
 # Input: "Hello", Key: 1
@@ -19,8 +19,8 @@ if __name__ == "__main__":
 ####################################
 #  Sample Input/Output:
 ####################################
-#Enter plaintext: Hello
-#Enter shift key (1-25): 1
-#Ciphertext: Ifmmp
-#Decrypted Text: Hello
+#Enter the plaintext: Hello
+#Enter the key value: 1
+#Encrypted Text is Ifmmp
+#Decrypted Text is Hello
 ####################################
