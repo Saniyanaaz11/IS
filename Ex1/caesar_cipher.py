@@ -1,26 +1,17 @@
 def encrypt(text, shift):
-    result = []
-    for c in text:
-        if c.isalpha():
-            base = ord('A') if c.isupper() else ord('a')
-            result.append(chr((ord(c) - base + shift) % 26 + base))
-        else:
-            result.append(c)
-    return ''.join(result)
+    return ''.join(
+        chr((ord(c) - base + shift) % 26 + base) if c.isalpha() else c
+        for c in text
+        for base in [ord('A') if c.isupper() else ord('a')] if c.isalpha() or True
+    )
 
-def decrypt(text, shift):
-    return encrypt(text, 26 - shift)
-
-def main():
-    plaintext = input("Enter plaintext: ")
-    shift = int(input("Enter shift key (1-25): "))
-    ciphertext = encrypt(plaintext, shift)
-    print("Ciphertext:", ciphertext)
-    decrypted_text = decrypt(ciphertext, shift)
-    print("Decrypted Text:", decrypted_text)
+decrypt = lambda text, shift: encrypt(text, 26 - shift)
 
 if __name__ == "__main__":
-    main()
+    shift = int(input("Enter shift key (1-25): "))
+    text = input("Enter plaintext: ")
+    print("Ciphertext:", cipher := encrypt(text, shift))
+    print("Decrypted Text:", decrypt(cipher, shift))
 ####################################
 # Example usage:
 # Input: "Hello", Key: 1
