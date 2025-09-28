@@ -56,17 +56,17 @@ decrypted = ''.join(process_pair(matrix, pos, encrypted[i], encrypted[i+1], -1)
                     for i in range(0, len(encrypted), 2))
 cleaned   = clean_decrypted(decrypted)
 
-print("Encrypted Text:", encrypted)
+print("Encrypted Text:", encrypted.upper())
 print("Decrypted Text:", cleaned)
 #####################################
 # Example usage:
 # Input: "balloon", Key: "playfair example" 
-# Output: "dpyranqo" (Encrypted), "balloon" (Decrypted)
+# Output: "DPYRANQO" (Encrypted), "balloon" (Decrypted)
 ####################################
 #  Sample Input/Output:
 ####################################
 #Enter the plain text: balloon
 #Enter Key value: playfair example
-#Encrypted Text: dpyranqo
+#Encrypted Text: DPYRANQO
 #Decrypted Text: balloon
 ####################################
