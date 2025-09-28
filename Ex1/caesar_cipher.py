@@ -19,8 +19,8 @@ if __name__ == "__main__":
 ####################################
 #  Sample Input/Output:
 ####################################
-#Enter the plaintext: Hello
-#Enter the key value: 1
+#Enter the plaintext:Hello
+#Enter key value:1
 #Encrypted Text is Ifmmp
 #Decrypted Text is Hello
 ####################################
