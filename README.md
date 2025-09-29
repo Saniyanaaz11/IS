@@ -21,7 +21,7 @@ This project is a collection of lab exercises to implement security concepts lik
 1.  **Clone the project:**
 
     ```bash
-    git clone [https://github.com/GodOfZap/IS.git](https://github.com/GodOfZap/IS.git)
+    git clone https://github.com/GodOfZap/IS.git
     ```
 
 2.  **Move into the folder:**
