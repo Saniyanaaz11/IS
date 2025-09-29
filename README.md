@@ -56,9 +56,7 @@ This project is under the **GPL 3.0 License**. See the [LICENSE](LICENSE) file f
 
 ---
 
-## 📊 Stats (for your README)
-
-Replace `GodOfZap` and `IS` with your actual details to see live stats.
+## 📊 Stats 
 
 - **Repo Size:** ![GitHub repo size](https://img.shields.io/github/repo-size/GodOfZap/IS)
 - **Stars:** ![GitHub stars](https://img.shields.io/github/stars/GodOfZap/IS)
