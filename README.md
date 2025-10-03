@@ -57,10 +57,12 @@ This project is a collection of lab exercises to implement security concepts lik
 New contributions are welcomed. Fix a bug, add a new lab or improve the docs. Just fork the repo and submit a Pull Request.
 
 ---
+
 ## ✨ Contributors
 
 <!-- CONTRIBUTORS:START -->
 <!-- CONTRIBUTORS:END -->
+
 
 
 ## 📄 License
