@@ -5,7 +5,7 @@ permissions:
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+    - cron: '0 0 * * *'  # Runs daily
   workflow_dispatch:
 
 jobs:
@@ -18,7 +18,7 @@ jobs:
 
       - name: Fetch contributors and update README
         run: |
-          CONTRIBUTORS=$(curl -s https://api.github.com/repos/GodOfZap/IS/contributors | jq -r '.[] | "- [\(.login)](\(.html_url))"')
+          CONTRIBUTORS=$(curl -s https://api.github.com/repos/GodOfZap/IS/contributors | jq -r '.[] | "<a href=\"\(.html_url)\">\n  <img src=\"\(.avatar_url)\" width=\"60\" height=\"60\" alt=\"\(.login)\" />\n</a>\n"')
           echo "Fetched contributors:"
           echo "$CONTRIBUTORS"
 
