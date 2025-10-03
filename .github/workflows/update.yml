@@ -1,0 +1,34 @@
+name: Update Contributors
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  update-contributors:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch contributors and update README
+        run: |
+          CONTRIBUTORS=$(curl -s https://api.github.com/repos/GodOfZap/IS/contributors | jq -r '.[] | "- [\(.login)](\(.html_url))"')
+          awk '/<!-- CONTRIBUTORS:START -->/,/<!-- CONTRIBUTORS:END -->/ {next} {print}' README.md > temp.md
+          echo "<!-- CONTRIBUTORS:START -->" >> temp.md
+          echo "$CONTRIBUTORS" >> temp.md
+          echo "<!-- CONTRIBUTORS:END -->" >> temp.md
+          mv temp.md README.md
+
+      - name: Commit and push changes
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/GodOfZap/IS.git
+          git add README.md
+          git commit -m "Update contributors list" || echo "No changes to commit"
+          git push origin HEAD:main
