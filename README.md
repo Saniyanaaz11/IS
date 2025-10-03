@@ -78,15 +78,6 @@ New contributions are welcomed. Fix a bug, add a new lab or improve the docs. Ju
   <img src="https://avatars.githubusercontent.com/u/8684346?v=4" width="60" height="60" alt="HackersSpirit" />
 </a>
 
-<a href="https://github.com/GodOfZap">
-  <img src="https://avatars.githubusercontent.com/u/104364679?v=4" width="60" height="60" alt="GodOfZap" />
-</a>
-
-<a href="https://github.com/HackersSpirit">
-  <img src="https://avatars.githubusercontent.com/u/8684346?v=4" width="60" height="60" alt="HackersSpirit" />
-</a>
-
-
 <!-- CONTRIBUTORS:END -->
 
 
