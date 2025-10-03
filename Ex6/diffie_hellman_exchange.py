@@ -27,3 +27,21 @@ if K_alice == K_bob:
     print("\nVerification: The shared secret keys match!")
 else:
     print("\nVerification: ERROR! The shared secret keys DO NOT match.")
+####################################################
+#Example Interaction:
+#Diffie-Hellman Key Exchange Setup
+#Enter a prime number (p): 29
+#Enter a primitive root of 29 (g): 9
+#Enter private key for Alice (a): 4
+#Enter private key for Bob (b): 3
+#
+#Key Exchange Process
+#Alice's Public Key (A): 7
+#Bob's Public Key (B): 4
+#
+#Shared Secret Computation
+#Shared secret key (computed by Alice): 24
+#Shared secret key (computed by Bob): 24
+#
+#Verification: The shared secret keys match!
+####################################################
