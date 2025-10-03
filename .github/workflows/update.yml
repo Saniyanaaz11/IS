@@ -18,12 +18,17 @@ jobs:
 
       - name: Fetch contributors and update README
         run: |
-          CONTRIBUTORS=$(curl -s https://api.github.com/repos/GodOfZap/IS/contributors | jq -r '.[] | "<a href=\"\(.html_url)\">\n  <img src=\"\(.avatar_url)\" width=\"60\" height=\"60\" alt=\"\(.login)\" />\n</a>\n"')
+          CONTRIBUTORS=$(curl -s https://api.github.com/repos/GodOfZap/IS/contributors | jq -r '.[] | "<a href=\"\(.html_url)\">\n  <img src=\"\(.avatar_url)\" width=\"60\" height=\"60\" alt=\"\(.login)\" style=\"border-radius: 50%;\" />\n</a>\n"')
           echo "Fetched contributors:"
           echo "$CONTRIBUTORS"
 
           if [ -n "$CONTRIBUTORS" ]; then
-            awk '/<!-- CONTRIBUTORS:START -->/{print;print "";print "__CONTRIBUTORS__";next} /<!-- CONTRIBUTORS:END -->/{print "";print;next} 1' README.md > temp.md
+            awk '
+              /<!-- CONTRIBUTORS:START -->/ {print; print "__CONTRIBUTORS__"; skip=1; next}
+              /<!-- CONTRIBUTORS:END -->/ {skip=0; print; next}
+              skip != 1
+            ' README.md > temp.md
+
             sed "/__CONTRIBUTORS__/{
               r /dev/stdin
               d
@@ -31,6 +36,14 @@ jobs:
           else
             echo "No contributors found. Skipping README update."
           fi
+
+      - name: Refresh Shields.io badges
+        run: |
+          curl -s https://img.shields.io/badge/hacktoberfest-2025-blueviolet > /dev/null
+          curl -s "https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99" > /dev/null
+          curl -s https://img.shields.io/badge/Contributions-welcome-violet.svg?style=flat&logo=git > /dev/null
+          curl -s https://img.shields.io/github/issues-pr/GodOfZap/IS > /dev/null
+          curl -s https://img.shields.io/github/contributors/GodOfZap/IS?color=2b9348 > /dev/null
 
       - name: Commit and push changes
         env:
