@@ -61,6 +61,10 @@ New contributions are welcomed. Fix a bug, add a new lab or improve the docs. Ju
 ## ✨ Contributors
 
 <!-- CONTRIBUTORS:START -->
+- [GodOfZap](https://github.com/GodOfZap)
+- [keikurono7](https://github.com/keikurono7)
+- [drtoxic69](https://github.com/drtoxic69)
+- [HackersSpirit](https://github.com/HackersSpirit)
 <!-- CONTRIBUTORS:END -->
 
 
