@@ -1,16 +1,16 @@
-# .github/workflows/update-contributors.yml
 name: Update Contributors
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 0'  # Runs weekly on Sunday
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+  workflow_dispatch:      # Allows manual trigger
 
 jobs:
   update-contributors:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Fetch contributors and update README
@@ -22,10 +22,13 @@ jobs:
           echo "<!-- CONTRIBUTORS:END -->" >> temp.md
           mv temp.md README.md
 
-      - name: Commit changes
+      - name: Commit and push changes
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/GodOfZap/IS.git
           git add README.md
           git commit -m "Update contributors list"
           git push
