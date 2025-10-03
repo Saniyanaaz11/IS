@@ -63,6 +63,10 @@ New contributions are welcomed. Fix a bug, add a new lab or improve the docs. Ju
 ## ✨ Contributors
 
 <!-- CONTRIBUTORS:START -->
+
+- [GodOfZap](https://github.com/GodOfZap)
+- [HackersSpirit](https://github.com/HackersSpirit)
+
 <!-- CONTRIBUTORS:END -->
 
 
@@ -82,8 +86,10 @@ This project is under the **GPL 3.0 License**. See the [LICENSE](LICENSE) file f
 
 
 
+
 - [GodOfZap](https://github.com/GodOfZap)
 - [HackersSpirit](https://github.com/HackersSpirit)
+
 
 
 <!-- CONTRIBUTORS:END -->
