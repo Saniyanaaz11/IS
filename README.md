@@ -59,8 +59,6 @@ New contributions are welcomed. Fix a bug, add a new lab or improve the docs. Ju
 ---
 ## ✨ Contributors
 
-Thanks to these amazing people who helped build this lab!
-
 <!-- CONTRIBUTORS:START -->
 <!-- CONTRIBUTORS:END -->
 
