@@ -61,8 +61,6 @@ New contributions are welcomed. Fix a bug, add a new lab or improve the docs. Ju
 
 Thanks to these amazing people who helped build this lab!
 
-<!-- CONTRIBUTORS:START -->
-<!-- CONTRIBUTORS:END -->
 
 
 ## 📄 License
@@ -76,3 +74,7 @@ This project is under the **GPL 3.0 License**. See the [LICENSE](LICENSE) file f
 - **Repo Size:** ![GitHub repo size](https://img.shields.io/github/repo-size/GodOfZap/IS)
 - **Stars:** ![GitHub stars](https://img.shields.io/github/stars/GodOfZap/IS)
 - **Last Update:** ![Last commit](https://img.shields.io/github/last-commit/GodOfZap/IS)
+<!-- CONTRIBUTORS:START -->
+- [GodOfZap](https://github.com/GodOfZap)
+- [HackersSpirit](https://github.com/HackersSpirit)
+<!-- CONTRIBUTORS:END -->
