@@ -62,19 +62,15 @@ New contributions are welcomed. Fix a bug, add a new lab or improve the docs. Ju
 
 <!-- CONTRIBUTORS:START -->
 <a href="https://github.com/GodOfZap">
-  <img src="https://avatars.githubusercontent.com/u/104364679?v=4" width="60" height="60" alt="GodOfZap" style="border-radius: 50%;" />
-</a>
-
-<a href="https://github.com/keikurono7">
-  <img src="https://avatars.githubusercontent.com/u/125114994?v=4" width="60" height="60" alt="keikurono7" style="border-radius: 50%;" />
+  <img src="https://avatars.githubusercontent.com/u/104364679?v=4" width="60" height="60" alt="GodOfZap" style="border-radius: 50%; object-fit: cover;" />
 </a>
 
 <a href="https://github.com/drtoxic69">
-  <img src="https://avatars.githubusercontent.com/u/67575682?v=4" width="60" height="60" alt="drtoxic69" style="border-radius: 50%;" />
+  <img src="https://avatars.githubusercontent.com/u/67575682?v=4" width="60" height="60" alt="drtoxic69" style="border-radius: 50%; object-fit: cover;" />
 </a>
 
 <a href="https://github.com/HackersSpirit">
-  <img src="https://avatars.githubusercontent.com/u/8684346?v=4" width="60" height="60" alt="HackersSpirit" style="border-radius: 50%;" />
+  <img src="https://avatars.githubusercontent.com/u/8684346?v=4" width="60" height="60" alt="HackersSpirit" style="border-radius: 50%; object-fit: cover;" />
 </a>
 <!-- CONTRIBUTORS:END -->
 
