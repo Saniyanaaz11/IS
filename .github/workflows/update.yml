@@ -23,8 +23,11 @@ jobs:
           echo "$CONTRIBUTORS"
 
           if [ -n "$CONTRIBUTORS" ]; then
-            awk '/<!-- CONTRIBUTORS:START -->/{print;print "";print ENVIRON["CONTRIBUTORS"];next} /<!-- CONTRIBUTORS:END -->/{print "";print;next} 1' README.md > temp.md
-            mv temp.md README.md
+            awk '/<!-- CONTRIBUTORS:START -->/{print;print "";print "__CONTRIBUTORS__";next} /<!-- CONTRIBUTORS:END -->/{print "";print;next} 1' README.md > temp.md
+            sed "/__CONTRIBUTORS__/{
+              r /dev/stdin
+              d
+            }" temp.md <<< "$CONTRIBUTORS" > README.md
           else
             echo "No contributors found. Skipping README update."
           fi
