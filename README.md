@@ -60,6 +60,8 @@ New contributions are welcomed. Fix a bug, add a new lab or improve the docs. Ju
 
 ## ✨ Contributors
 
+<!-- CONTRIBUTORS:START -->
+<!-- CONTRIBUTORS:END -->
 
 
 
