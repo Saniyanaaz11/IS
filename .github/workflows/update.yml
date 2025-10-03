@@ -1,8 +1,11 @@
 name: Update Contributors
 
+permissions:
+  contents: write
+
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 jobs:
@@ -30,5 +33,5 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git remote set-url origin https://x-access-token:${GH_PAT}@github.com/GodOfZap/IS.git
           git add README.md
-          git commit -m "Update contributors list" || echo "No changes to commit"
+          git diff --cached --quiet || git commit -m "Update contributors list"
           git push origin HEAD:main
