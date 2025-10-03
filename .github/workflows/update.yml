@@ -5,7 +5,7 @@ permissions:
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
   workflow_dispatch:
 
 jobs:
@@ -19,11 +19,15 @@ jobs:
       - name: Fetch contributors and update README
         run: |
           CONTRIBUTORS=$(curl -s https://api.github.com/repos/GodOfZap/IS/contributors | jq -r '.[] | "- [\(.login)](\(.html_url))"')
-          awk '/<!-- CONTRIBUTORS:START -->/,/<!-- CONTRIBUTORS:END -->/ {next} {print}' README.md > temp.md
-          echo "<!-- CONTRIBUTORS:START -->" >> temp.md
-          echo "$CONTRIBUTORS" >> temp.md
-          echo "<!-- CONTRIBUTORS:END -->" >> temp.md
-          mv temp.md README.md
+          echo "Fetched contributors:"
+          echo "$CONTRIBUTORS"
+
+          if [ -n "$CONTRIBUTORS" ]; then
+            awk '/<!-- CONTRIBUTORS:START -->/{print;print "";print ENVIRON["CONTRIBUTORS"];next} /<!-- CONTRIBUTORS:END -->/{print "";print;next} 1' README.md > temp.md
+            mv temp.md README.md
+          else
+            echo "No contributors found. Skipping README update."
+          fi
 
       - name: Commit and push changes
         env:
