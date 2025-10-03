@@ -1,0 +1,31 @@
+# .github/workflows/update-contributors.yml
+name: Update Contributors
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 0'  # Runs weekly on Sunday
+
+jobs:
+  update-contributors:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Fetch contributors and update README
+        run: |
+          CONTRIBUTORS=$(curl -s https://api.github.com/repos/GodOfZap/IS/contributors | jq -r '.[] | "- [\(.login)](\(.html_url))"')
+          awk '/<!-- CONTRIBUTORS:START -->/,/<!-- CONTRIBUTORS:END -->/ {next} {print}' README.md > temp.md
+          echo "<!-- CONTRIBUTORS:START -->" >> temp.md
+          echo "$CONTRIBUTORS" >> temp.md
+          echo "<!-- CONTRIBUTORS:END -->" >> temp.md
+          mv temp.md README.md
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add README.md
+          git commit -m "Update contributors list"
+          git push
