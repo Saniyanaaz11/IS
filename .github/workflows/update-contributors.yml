@@ -3,7 +3,7 @@ name: Update Contributors
 on:
   schedule:
     - cron: '0 0 * * *'  # Runs daily at midnight UTC
-  workflow_dispatch:      # Allows manual trigger
+  workflow_dispatch:
 
 jobs:
   update-contributors:
@@ -26,8 +26,8 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
           git remote set-url origin https://x-access-token:${GH_PAT}@github.com/GodOfZap/IS.git
           git add README.md
           git commit -m "Update contributors list" || echo "No changes to commit"
