@@ -1,68 +1,62 @@
-name: Update README and Badges
+name: Update Contributors
+
+permissions:
+  contents: write
 
 on:
-  push:
-    branches:
-      - main
   schedule:
-    - cron: '0 0 * * *' # Run daily at midnight
+    - cron: '0 0 * * *'  # Runs daily
+  workflow_dispatch:
 
 jobs:
-  update-readme:
+  update-contributors:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Call all APIs
+      - name: Wait for 15 seconds before fetching contributors
         run: |
-          echo "Calling all APIs..."
-          # Example API calls
-          # Replace these with your actual API calls
-          curl -s https://api.example.com/first
-          curl -s https://api.example.com/second
-          # Add more API calls as needed
-          echo "All API calls completed."
+          echo "Waiting for 15 seconds..."
+          sleep 15
 
       - name: Fetch contributors and update README
         run: |
-          # Wait 15 seconds before fetching contributors
-          echo "Waiting for 15 seconds before fetching contributors..."
-          sleep 15
-
-          # Fetch contributors
-          echo "Fetching contributors..."
           CONTRIBUTORS=$(curl -s https://api.github.com/repos/GodOfZap/IS/contributors | jq -r '.[] | "<a href=\"\(.html_url)\">\n  <img src=\"\(.avatar_url)\" width=\"60\" height=\"60\" alt=\"\(.login)\" style=\"border-radius: 50%;\" />\n</a>\n"')
-          
-          echo "Contributors fetched:"
+          echo "Fetched contributors:"
           echo "$CONTRIBUTORS"
 
-          # Optional: wait again after fetching
-          # echo "Waiting for 15 seconds after fetching..."
-          # sleep 15
-
-          # Update README with contributors
           if [ -n "$CONTRIBUTORS" ]; then
-            sed '/<!-- CONTRIBUTORS:START -->/,/<!-- CONTRIBUTORS:END -->/c\
-<!-- CONTRIBUTORS:START -->\n'"$CONTRIBUTORS"'\n<!-- CONTRIBUTORS:END -->' README.md > temp.md
-            mv temp.md README.md
-            echo "README updated with new contributors."
+            awk '
+              /<!-- CONTRIBUTORS:START -->/ {print; print "__CONTRIBUTORS__"; skip=1; next}
+              /<!-- CONTRIBUTORS:END -->/ {skip=0; print; next}
+              skip != 1
+            ' README.md > temp.md
+
+            sed "/__CONTRIBUTORS__/{
+              r /dev/stdin
+              d
+            }" temp.md <<< "$CONTRIBUTORS" > README.md
           else
             echo "No contributors found. Skipping README update."
           fi
 
-      - name: Update badges
+      - name: Refresh Shields.io badges
         run: |
-          # Example: Update badge markdown links
-          # Replace with your actual badge URLs and update logic
-          sed -i 's|!\[build status\](https://img.shields.io/badge/build-passing-brightgreen)|![build status](https://img.shields.io/badge/build-passing-brightgreen)|' README.md
-          
-          # Add more badge updates as needed
-          
-          echo "Badges updated."
-          
+          curl -s https://img.shields.io/badge/hacktoberfest-2025-blueviolet > /dev/null
+          curl -s "https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99" > /dev/null
+          curl -s https://img.shields.io/badge/Contributions-welcome-violet.svg?style=flat&logo=git > /dev/null
+          curl -s https://img.shields.io/github/issues-pr/GodOfZap/IS > /dev/null
+          curl -s https://img.shields.io/github/contributors/GodOfZap/IS?color=2b9348 > /dev/null
+
       - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Update README with contributors and badges"
-          branch: main
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/GodOfZap/IS.git
+          git add README.md
+          git diff --cached --quiet || git commit -m "Update contributors list"
+          git push origin HEAD:main
