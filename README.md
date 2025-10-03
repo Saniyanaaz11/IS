@@ -61,9 +61,9 @@ New contributions are welcomed. Fix a bug, add a new lab or improve the docs. Ju
 
 Thanks to these amazing people who helped build this lab!
 
-<a href="https://github.com/GodOfZap/IS/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=GodOfZap/IS&max=10&columns=5&anon=0" />
-</a>
+<!-- CONTRIBUTORS:START -->
+<!-- CONTRIBUTORS:END -->
+
 
 ## 📄 License
 
