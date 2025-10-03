@@ -22,3 +22,8 @@ if __name__ == "__main__":
     hashed_string = get_sha256_hash(user_input)
 
     print(f"SHA-256 Hash: {hashed_string}")
+#####################################
+# Example Usage:
+# Enter string to hash (SHA-256): asd
+# SHA-256 Hash: 688787d8ff144c502c7f5cffaafe2cc588d86079f9de88304c26b0cb99ce91c6
+#####################################
