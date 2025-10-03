@@ -11,7 +11,6 @@ This repository holds lab exercises for **Information Security**, mostly written
 <a href="https://github.com/GodOfZap/IS/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/GodOfZap/IS?color=2b9348"></a>
 
 </div>
----
 
 ## 📝 About
 
