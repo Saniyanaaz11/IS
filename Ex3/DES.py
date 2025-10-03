@@ -163,7 +163,7 @@ if __name__ == "__main__":
     main()
 
 ####################################
-# Example usage:
+# Example Usage:
 # Input: "Information"
 # Output: Ciphertext: <base64 string>, Decrypted Text: Information
 ####################################
