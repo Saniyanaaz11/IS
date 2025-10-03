@@ -23,7 +23,7 @@ jobs:
 
       - name: Fetch contributors and update README
         run: |
-          CONTRIBUTORS=$(curl -s https://api.github.com/repos/GodOfZap/IS/contributors | jq -r '.[] | "<a href=\"\(.html_url)\">\n  <img src=\"\(.avatar_url)\" width=\"60\" height=\"60\" alt=\"\(.login)\" style=\"border-radius: 50%; object-fit: cover;\" />\n</a>\n"')
+          CONTRIBUTORS=$(curl -s https://api.github.com/repos/GodOfZap/IS/contributors | jq -r '.[] | "<a href=\"\(.html_url)\">\n  <img src=\"\(.avatar_url)\" width=\"60\" height=\"60\" alt=\"\(.login)\" style=\"border-radius: 50%;\" />\n</a>\n"')
           echo "Fetched contributors:"
           echo "$CONTRIBUTORS"
 
