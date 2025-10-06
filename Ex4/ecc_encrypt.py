@@ -1,7 +1,7 @@
 from tinyec import registry
 from Crypto.Cipher import AES
 import hashlib, secrets
-
+ 
 def ecc_point_to_256_bit_key(point):
     sha = hashlib.sha256(int(point.x).to_bytes(32, "big"))
     return sha.digest()
