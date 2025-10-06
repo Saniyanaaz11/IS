@@ -2,7 +2,7 @@ from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
 import os
 import base64
-
+ 
 # Function to pad plaintext to be multiple of 16 bytes (AES block size)
 def pad(text):
     padding_len = 16 - (len(text) % 16)
