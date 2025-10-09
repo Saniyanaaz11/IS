@@ -21,3 +21,10 @@ key = input("Enter the key: ")
 cipher = vigenere_encrypt(plain, key)
 print("Ciphertext:", cipher)
 print("Decrypted Text:", vigenere_decrypt(cipher, key))
+###############################
+#Example Usage:
+#Enter the plaintext: vigenere
+#Enter the key: encrypt
+#Ciphertext: ZVIVLTKI
+#Decrypted Text: VIGENERE
+#################################
