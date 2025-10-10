@@ -57,3 +57,15 @@ try:
     print("Decrypted Text:", decrypted.rstrip('X'))
 except ValueError as e:
     print("Error:", e)
+#################################
+# Example Usage:
+# Enter size of key matrix (n): 2
+# Enter the key matrix (row by row):
+# 3
+# 3
+# 2
+# 5
+# Enter plaintext: HELLO
+# Encrypted Text: HIOZHN
+# Decrypted Text: HELLO
+# #################################
