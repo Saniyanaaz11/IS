@@ -39,3 +39,14 @@ print("Encrypted message is:", float(cipher))
 # decryption
 decrypted = mod_exp(cipher, d, n)
 print("Decrypted message is", decrypted)
+##################################
+# Example Input/Output:
+# Enter the Number (message): 12    
+# Enter 1st prime number: 5
+# Enter 2nd prime number: 11
+# Value of z = 40
+# Value of e = 3
+# Value of d = 27
+# Encrypted message is: 23.0
+# Decrypted message is 12
+##################################    
