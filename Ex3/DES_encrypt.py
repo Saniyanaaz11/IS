@@ -30,3 +30,15 @@ def main():
 
 if __name__ == "__main__":
     main()
+####################################
+# Example Usage:
+# Input: "HelloDES"
+# Output: Ciphertext: <base64 string>, Decrypted Text: HelloDES
+####################################
+# Note: The key is randomly generated each time. To use a fixed key, replace `get_random_bytes(8)` with a specific 8-byte value, e.g., `b'abcdefgh'`.
+# Note: Ensure that the 'pycryptodome' library is installed (`pip install pycryptodome`).
+#####################################
+#Enter plaintext: HelloDES
+#Ciphertext: eNWUs/v52JM=
+#Decrypted Text: HelloDES
+#####################################
