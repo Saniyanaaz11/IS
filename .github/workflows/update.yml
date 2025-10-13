@@ -23,13 +23,15 @@ jobs:
 
       - name: Fetch contributors and update README
         run: |
-          $(curl -s "Accept: application/vnd.github.v3+json" \ "https://api.github.com/repos/GodOfZap/IS/contributors?per_page=100&page=1" | jq -r '.[] | "<a href=\"\(.html_url)\">\n  <img src=\"\(.avatar_url)\" width=\"60\" height=\"60\" alt=\"\(.login)\" style=\"border-radius: 50%;\" />\n</a>\n"')
-          CONTRIBUTORS=$(curl -s https://api.github.com/repos/GodOfZap/IS/contributors | jq -r '.[] | "<a href=\"\(.html_url)\">\n  <img src=\"\(.avatar_url)\" width=\"60\" height=\"60\" alt=\"\(.login)\" style=\"border-radius: 50%;\" />\n</a>\n"')
+          echo "Fetching contributors from GitHub API..."
+          RESPONSE=$(curl -s -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/GodOfZap/IS/contributors?per_page=100&page=1")
 
-          echo "Fetched contributors:"
-          echo "$CONTRIBUTORS"
+          if echo "$RESPONSE" | jq -e 'type == "array"' > /dev/null; then
+            CONTRIBUTORS=$(echo "$RESPONSE" | jq -r '.[] | "<a href=\"\(.html_url)\">\n  <img src=\"\(.avatar_url)\" width=\"60\" height=\"60\" alt=\"\(.login)\" style=\"border-radius: 50%;\" />\n</a>\n"')
+            echo "Fetched contributors:"
+            echo "$CONTRIBUTORS"
 
-          if [ -n "$CONTRIBUTORS" ]; then
             awk '
               /<!-- CONTRIBUTORS:START -->/ {print; print "__CONTRIBUTORS__"; skip=1; next}
               /<!-- CONTRIBUTORS:END -->/ {skip=0; print; next}
@@ -41,7 +43,9 @@ jobs:
               d
             }" temp.md <<< "$CONTRIBUTORS" > README.md
           else
-            echo "No contributors found. Skipping README update."
+            echo "Unexpected response from GitHub API:"
+            echo "$RESPONSE"
+            echo "Skipping README update."
           fi
 
       - name: Refresh Shields.io badges
