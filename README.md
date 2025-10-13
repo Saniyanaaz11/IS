@@ -100,3 +100,40 @@ This project is under the **GPL 3.0 License**. See the [LICENSE](LICENSE) file f
 - **Repo Size:** ![GitHub repo size](https://img.shields.io/github/repo-size/GodOfZap/IS)
 - **Stars:** ![GitHub stars](https://img.shields.io/github/stars/GodOfZap/IS)
 - **Last Update:** ![Last commit](https://img.shields.io/github/last-commit/GodOfZap/IS)
+
+## 🧩 Lab Exercises - Ex1: Classical Ciphers
+
+### Caesar Cipher
+
+The Caesar cipher is a classical encryption technique where each letter in the plaintext is shifted by a fixed number of positions down the alphabet.
+
+**Features:**
+- Encrypts and decrypts text using a shift key.
+- Handles uppercase, lowercase, and non-alphabetic characters (punctuation, numbers, spaces remain unchanged).
+- Command-line interface for easy testing.
+
+**Usage:**
+
+**Encrypt:**
+
+Examples :
+
+python Ex1/caesar/caesar_cipher.py encrypt "HELLO WORLD" 3
+# Output: KHOOR ZRUOG
+
+python Ex1/caesar/caesar_cipher.py decrypt "KHOOR ZRUOG" 3
+# Output: HELLO WORLD
+
+The shift key can be any integer (key > 26 wraps around).
+
+Non-alphabetic characters are not modified.
+
+
+---
+
+### **3. Save the README.md**
+After this, your **code (`caesar_cipher.py`)** and **documentation** are ready for a PR.  
+
+If you want, I can draft **full “Ex1” README content covering Caesar, Vigenère, Playfair, and Hill ciphers** so your PR looks complete and professional. This usually increases merge chances.  
+
+Do you want me to do that next?

@@ -1,35 +1,65 @@
-def encrypt(text, shift):
+#!/usr/bin/env python3
+"""
+Caesar Cipher Lab
+-----------------
+This script implements the classical Caesar cipher for educational purposes.
+
+Features:
+- Encrypt and decrypt text using a given key
+- Handles uppercase, lowercase, and non-alphabet characters
+- Command-line interface with argparse
+"""
+
+import argparse
+
+def encrypt(text: str, key: int) -> str:
+    """
+    Encrypts text using Caesar cipher with the given key.
+    
+    Parameters:
+        text (str): The input plaintext
+        key (int): Shift key (number of positions)
+    
+    Returns:
+        str: Encrypted ciphertext
+    """
     result = []
-    for c in text:
-        if c.isalpha():
-            base = ord('A') if c.isupper() else ord('a')
-            result.append(chr((ord(c) - base + shift) % 26 + base))
+    for char in text:
+        if char.isupper():
+            result.append(chr((ord(char) - 65 + key) % 26 + 65))
+        elif char.islower():
+            result.append(chr((ord(char) - 97 + key) % 26 + 97))
         else:
-            result.append(c)
+            result.append(char)
     return ''.join(result)
 
-def decrypt(text, shift):
-    return encrypt(text, 26 - shift)
+def decrypt(cipher: str, key: int) -> str:
+    """
+    Decrypts text using Caesar cipher with the given key.
+    
+    Parameters:
+        cipher (str): The encrypted ciphertext
+        key (int): Shift key (number of positions)
+    
+    Returns:
+        str: Decrypted plaintext
+    """
+    return encrypt(cipher, -key)
 
 def main():
-    plaintext = input("Enter plaintext: ")
-    shift = int(input("Enter shift key (1-25): "))
-    ciphertext = encrypt(plaintext, shift)
-    print("Ciphertext:", ciphertext)
-    decrypted_text = decrypt(ciphertext, shift)
-    print("Decrypted Text:", decrypted_text)
+    parser = argparse.ArgumentParser(description="Caesar Cipher Lab Exercise")
+    parser.add_argument("mode", choices=["encrypt", "decrypt"], help="Mode: encrypt or decrypt")
+    parser.add_argument("text", help="Text to encrypt/decrypt (use quotes for spaces)")
+    parser.add_argument("key", type=int, help="Shift key (integer)")
+
+    args = parser.parse_args()
+
+    if args.mode == "encrypt":
+        result = encrypt(args.text, args.key)
+        print(f"Encrypted Text: {result}")
+    else:
+        result = decrypt(args.text, args.key)
+        print(f"Decrypted Text: {result}")
 
 if __name__ == "__main__":
     main()
-####################################
-# Example usage:
-# Input: "Hello", Key: 1
-# Output: "Ifmmp" (Encrypted), "Hello" (Decrypted)
-####################################
-#  Sample Input/Output:
-####################################
-#Enter plaintext: Hello
-#Enter shift key (1-25): 1
-#Ciphertext: Ifmmp
-#Decrypted Text: Hello
-####################################
