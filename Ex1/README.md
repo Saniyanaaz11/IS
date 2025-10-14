@@ -13,10 +13,10 @@ The Caesar cipher is a classical encryption technique where each letter in the p
 
 Examples :
 
-python ./Caesar_Improved.py encrypt "HELLO WORLD" 3
+python ./caesar/Caesar_Improved.py encrypt "HELLO WORLD" 3
 # Output: KHOOR ZRUOG
 
-python ./Caesar_Improved.py decrypt "KHOOR ZRUOG" 3
+python ./caesar/Caesar_Improved.py decrypt "KHOOR ZRUOG" 3
 # Output: HELLO WORLD
 
 The shift key can be any integer (key > 26 wraps around).
