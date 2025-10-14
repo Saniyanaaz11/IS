@@ -83,6 +83,10 @@ Please see the **[CONTRIBUTING.md](CONTRIBUTING.md)** file for guidelines on set
   <img src="https://avatars.githubusercontent.com/u/67575682?v=4" width="60" height="60" alt="drtoxic69" style="border-radius: 50%;" />
 </a>
 
+<a href="https://github.com/shwetchan20">
+  <img src="https://avatars.githubusercontent.com/u/213648030?v=4" width="60" height="60" alt="shwetchan20" style="border-radius: 50%;" />
+</a>
+
 <a href="https://github.com/HackersSpirit">
   <img src="https://avatars.githubusercontent.com/u/8684346?v=4" width="60" height="60" alt="HackersSpirit" style="border-radius: 50%;" />
 </a>
