@@ -1,5 +1,3 @@
-# 🛡️ Information Security Lab
-
 ## 🧩 Lab Exercises - Ex1: Classical Ciphers
 
 ### Caesar Cipher
