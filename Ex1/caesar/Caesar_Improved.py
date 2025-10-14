@@ -4,6 +4,8 @@ Caesar Cipher Lab
 -----------------
 This script implements the classical Caesar cipher for educational purposes.
 
+Note:
+- This is an improved version with documentation and additional features.
 Features:
 - Encrypt and decrypt text using a given key
 - Handles uppercase, lowercase, and non-alphabet characters
