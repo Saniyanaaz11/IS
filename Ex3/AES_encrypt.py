@@ -38,3 +38,11 @@ print("Ciphertext:", ciphertext)
 
 decrypted = decrypt(ciphertext)
 print("Decrypted Text:", decrypted)
+#################################
+# Example Usage:
+# Enter plaintext: AES
+# Ciphertext: SWWmXCoFvjkGgkvU+QcEiY5ekmXSHbVroHpKypY3iPA=
+# Decrypted Text: AES
+#################################
+# Note: Ensure that the 'cryptography' library is installed (`pip install cryptography`). 
+#################################
