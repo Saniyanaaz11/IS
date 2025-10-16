@@ -43,3 +43,9 @@ decrypted_text = unpad(decrypted_padded.decode())
 # Final Output (matching your example)
 print(f"Ciphertext: {ciphertext_b64}")
 print(f"Decrypted Text: {decrypted_text}")
+###################################
+# Example Usage:
+# Enter plaintext: AES
+# Ciphertext: UiGSi9SKAATPx9YRzYu+rA==
+# Decrypted Text: AES
+###################################
