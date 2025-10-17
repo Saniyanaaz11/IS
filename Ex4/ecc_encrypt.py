@@ -54,3 +54,13 @@ if __name__ == "__main__":
         nonce.hex() + authTag.hex() + ciphertext.hex() + pubKeyEph.x.to_bytes(32, "big").hex()
     )
     print("\nEncrypted Ciphertext (hex):", full_cipher_hex)
+#################################################
+#Example Usage:
+#ECC Key Pair Generated
+#Public Key (hex): fdb6e0771b8dd8c6e737abed8495edca8386638de912b32394738305f1248bae
+#Private Key (hex): 1d32a22fc41438119a8ade5a00e66c94d500ba886250179825860f24a863eaa1
+#
+#Enter plaintext to encrypt: ECC
+#
+#Encrypted Ciphertext (hex): c7e37b90033ee5fd68c173829b3a5a61c9e9704e64f45cd2d538385cd2f8d144e423c4855e1e515611870b0e145105341a1d9c2ac3c54bd247717b7410d74c82de9969
+##################################################
