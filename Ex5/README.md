@@ -8,7 +8,7 @@ Usage
 1. From this repository root, run:
 
 ```bash
-cd "Primarility test"
+cd "Ex5"
 python3 primality_test.py
 ```
 
