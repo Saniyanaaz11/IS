@@ -27,3 +27,8 @@ try:
     print("Signature is valid. Message is authentic and unchanged.")
 except:
     print("Signature is invalid. Message may have been tampered with.")
+###############################################
+# Example Output:
+#Enter your message: Hello, this is a test message.
+#Signature is valid. Message is authentic and unchanged.
+###############################################
