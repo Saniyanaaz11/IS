@@ -60,3 +60,11 @@ if __name__ == "__main__":
     is_valid = verify_signature(public_key, user_message, signature)
     print("Verifying signature...")
     print("Signature valid:", is_valid)
+###############################################
+# Example Output:
+#Digital Signature Verification Demo
+#Enter the message to sign: Hello, this is a test message.
+#Message signed successfully.
+#Verifying signature...
+#Signature valid: True
+###############################################
