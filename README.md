@@ -8,13 +8,35 @@ This repository holds lab exercises for **Information Security**, mostly written
 <img src="https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99" alt="Star Badge"/>
 <a href="https://github.com/GodOfZap" ><img src="https://img.shields.io/badge/Contributions-welcome-violet.svg?style=flat&logo=git" alt="Contributions" /></a>
 <a href="https://github.com/GodOfZap/IS/pulls"><img src="https://img.shields.io/github/issues-pr/GodOfZap/IS" alt="Pull Requests Badge"/></a>
-<a href="https://github.com/GodOfZap/IS/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/GodOfZap/IS?color=2b9348"></a>
+<a href="https://github.com/GodOfZap/IS/graphs/contributors"><img alt="GitHub
 
 </div>
 
 ## 📝 About
 
 This project is a collection of lab exercises to implement security concepts like cryptography, network tools and other basics.
+
+- **Ex1 — Classical Ciphers**  
+  Implements classical algorithms like Caesar, Vigenère, Playfair, and Hill cipher.
+
+- **Ex2 — RSA (Asymmetric Crypto)**  
+  Educational implementation of RSA for key generation, encryption, and decryption.
+
+- **Ex3 — Hashing & Symmetric Crypto**  
+  Demonstrates SHA-256 hashing and symmetric encryption using AES and DES.
+
+- **Ex4 — Elliptic Curve Cryptography (ECC)**  
+  ECC encryption and ECIES-like examples using `ecies` and `tinyec`.
+
+- **Ex5 — Primality Testing**  
+  Trial division and Miller–Rabin algorithms for primality checks.
+
+- **Ex6 — Diffie–Hellman Key Exchange**  
+  Simulates DH key exchange to compute public keys and shared secrets.
+
+- **Ex7 — Digital Signatures**  
+  RSA-based signing and verification using the `cryptography` library.
+
 
 ---
 
